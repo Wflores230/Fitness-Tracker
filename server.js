@@ -22,7 +22,9 @@ app.get("/stats", (req, res) => {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-require("./routes/routes.js")(app);
+
+//use routes
+app.use(require("./routes"));
 
 const PORT = process.env.PORT || 3001;
 
@@ -37,6 +39,6 @@ const DeprecationWarning = {
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", DeprecationWarning)
     .then(() => {
         app.listen(PORT, () => {
-        console.log(`localhost:${PORT}`);
+        console.log(`Welcome, localhost:${PORT} is ready for you!`);
     });
 });
