@@ -36,7 +36,7 @@ const DeprecationWarning = {
 };
 
 // for mongoose to heroku
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", DeprecationWarning)
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitness-tracker", DeprecationWarning)
     .then(() => {
         app.listen(PORT, () => {
         console.log(`Welcome, localhost:${PORT} is ready for you!`);
